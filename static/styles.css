@@ -1,0 +1,26 @@
+header {
+    margin: 0px;
+}
+
+
+#main_header {
+    background-color: teal;
+    color: darkmagenta;
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    margin: 0px;
+}
+.gym_name {
+    
+}
+
+body {
+    display: flex;
+    margin-left: 0px;
+
+}
+
+main {
+    margin-top: 90px;
+}
