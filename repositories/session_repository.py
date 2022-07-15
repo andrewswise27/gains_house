@@ -1,3 +1,4 @@
+from sqlite3 import SQLITE_ALTER_TABLE
 from db.run_sql import run_sql
 
 from models.gym import Gym
@@ -6,3 +7,20 @@ from models.session import Session
 
 from repositories import member_repository
 from repositories import gym_repository
+
+def save(session):
+    sql = "INSERT INTO sessions (name, length, capacity, level, description) VALUES (%s, %s, %s, %s, %s) RETURNING ID"
+    values = [session.name, session.length, session.capacity, session.level, session.description]
+    results = run_sql(sql, values)
+    session.id = results[0]['id']
+    return session
+
+def select_all():
+    sessions = []
+
+    sql = "RETURN * FROM sessions"
+    results = run_sql(sql)
+    for row in results:
+        session = Session(row['name'], row['date'], row['time'], row['length'], row['capacity'], row['description'], row['level'], row['members_booked'], row['id'])
+        sessions.append(session)
+    return sessions

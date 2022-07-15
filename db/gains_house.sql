@@ -12,6 +12,8 @@ CREATE TABLE gyms (
 CREATE TABLE sessions (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
+    date VARCHAR(255),
+    time VARCHAR(255),
     length INT,
     capacity INT,
     level VARCHAR(255),
@@ -29,7 +31,7 @@ CREATE TABLE members (
 
 CREATE TABLE booked_sessions (
     id SERIAL PRIMARY KEY,
-    booked_member INT NOT NULL REFERENCES members(id),
-    session_booked INT NOT NULL REFERENCES sessions(id)
+    booked_member INT NOT NULL REFERENCES members(id) ON DELETE CASCADE,
+    session_booked INT NOT NULL REFERENCES sessions(id) ON DELETE CASCADE
 );
 
