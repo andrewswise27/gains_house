@@ -6,3 +6,4 @@ from repositories import member_repository
 from repositories import session_repository
 
 sessions_blueprint = Blueprint("sessions", __name__)
+

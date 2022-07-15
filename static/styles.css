@@ -1,5 +1,8 @@
 header {
+    display: flex;
     margin: 0px;
+    justify-content: space-between;
+    align-content: center;
 }
 
 
@@ -12,7 +15,31 @@ header {
     margin: 0px;
 }
 .gym_name {
-    
+    padding-left: 10px;
+
+}
+
+.main_navigation {
+    display: inline-flex;
+    justify-content: right;
+    list-style: none;
+    align-items: center;
+    width: 50%;
+}
+
+.nav_buttons {
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    padding-left: 4px;
+    color: darkmagenta;
+}
+
+a:hover {
+    color: blue;
+    cursor: pointer;
 }
 
 body {
