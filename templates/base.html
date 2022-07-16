@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <title>Gains House</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn.freelogodesign.org/files/ef10791aa0974a91885275d367c9531d/thumb/logo_200x200.png?v=0">
 </head>
 <body>
-    <header id="main_header"><h1 class="gym_name">Gains House</h1> 
+    <header id="main_header"><img id="header_image" src="https://cdn.freelogodesign.org/files/ef10791aa0974a91885275d367c9531d/thumb/logo_200x200.png?v=0" width="125" height="99" alt="">
     <nav class="main_navigation">
         <ul class="main_navigation">
-            <li class="nav_buttons"><a href="Home"  id="home_button">Home</a></li>
-            <li class="nav_buttons" ><a href="Sessions" id="classes_button">Sessions</a></li>
-            <li class="nav_buttons" ><a href="Members" id="members_button">Members</a></li>
+            <li class="nav_buttons"><a href="/home"  id="home_button">Home</a></li>
+            <li class="nav_buttons" ><a href="/sessions" id="classes_button">Sessions</a></li>
+            <li class="nav_buttons" ><a href="/members" id="members_button">Members</a></li>
         </ul>
     </nav>
     </header>

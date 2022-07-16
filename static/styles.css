@@ -1,48 +1,42 @@
-header {
+#main_header {
     display: flex;
+    overflow: hidden;
     margin: 0px;
     justify-content: space-between;
     align-content: center;
-}
-
-
-#main_header {
-    background-color: gray;
-    color:  red;
+    background-color: black;
     position: fixed; 
     top: 0; 
     width: 100%; 
     margin: 0px;
 }
 
-#main_header h1 {
-    font-size: 1.7rem;
-}
-
-.gym_name {
-    padding-left: 10px;
-
-}
-
 .main_navigation {
-    display: inline-flex;
+    display: flex;
     justify-content: right;
     list-style: none;
+    padding-left: 10px;
+    padding-right: 10px;
     align-items: center;
-    width: 50%;
+    width: 70%;
+    text-decoration: none;
 }
 
 .nav_buttons {
-    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+
 }
 
-a {
+.nav_buttons a {
     text-decoration: none;
     padding-left: 4px;
-    color: red;
+    padding-right: 8px;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-a:hover {
+.nav_buttons a:hover {
     color: blue;
     cursor: pointer;
 }
@@ -50,9 +44,10 @@ a:hover {
 body {
     display: flex;
     margin-left: 0px;
-
+    background-color: darkgray;
+    margin-bottom: 800px;
 }
 
 main {
-    margin-top: 3.6rem;
+    margin-top: 6rem;
 }

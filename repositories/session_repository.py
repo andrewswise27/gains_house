@@ -9,8 +9,8 @@ from repositories import member_repository
 from repositories import gym_repository
 
 def save(session):
-    sql = "INSERT INTO sessions (name, tod, length, capacity, level, description, members_booked) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING ID"
-    values = [session.name, session.tod, session.length, session.capacity, session.level, session.description, session.members_booked]
+    sql = "INSERT INTO sessions (name, tod, doy, length, capacity, level, description) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING ID"
+    values = [session.name, session.tod, session.doy, session.length, session.capacity, session.level, session.description]
     results = run_sql(sql, values)
     session.id = results[0]['id']
     return session
@@ -21,6 +21,6 @@ def select_all():
     sql = "SELECT * FROM sessions"
     results = run_sql(sql)
     for row in results:
-        session = Session(row['name'], row['tod'], row['length'], row['capacity'], row['description'], row['level'], row['members_booked'], row['id'])
+        session = Session(row['name'], row['tod'], row['doy'], row['length'], row['capacity'], row['description'], row['level'], row['id'])
         sessions.append(session)
     return sessions

@@ -13,10 +13,10 @@ CREATE TABLE sessions (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     tod TEXT,
+    doy TEXT,
     length INT,
     capacity INT,
     level VARCHAR(255),
-    members_booked INT,
     description TEXT
 );
 
