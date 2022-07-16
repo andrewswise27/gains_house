@@ -12,11 +12,11 @@ CREATE TABLE gyms (
 CREATE TABLE sessions (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    date VARCHAR(255),
-    time VARCHAR(255),
+    tod TEXT,
     length INT,
     capacity INT,
     level VARCHAR(255),
+    members_booked INT,
     description TEXT
 );
 
