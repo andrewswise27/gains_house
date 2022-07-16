@@ -1,13 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
+<section class="session_block">
 {% for session in sessions %}
-    {{session.name}}
-    {{session.tod}}
-    {{session.doy}}
-    {{session.length}}
-    {{session.capacity}}
-    {{session.level}}
-    {{session.description}}
+    <div class="session_boxes">
+    <ul class="session_box_list">
+    <li> <b><label for="session_name">Session:</label></b>{{session.name}} &nbsp; 
+    <b><label for="session_time">Time:</label></b>{{session.tod}}</li>
+    <br>
+    <li><b><label for="session_date">Date:</label></b>{{session.doy}} &nbsp; 
+    <b><label for="session_length">Duration:</label></b>{{session.length}}</li>
+    <br>
+    <li><b><label for="session_capacity">Capacity:</label></b>{{session.capacity}} &nbsp; 
+    <b><label for="session_level">Level:</label></b>{{session.level}}</li>
+    <br>
+    <li><a href=""><button>Book Session</button></a> <a href=""><button>Session Info</button><i class="fa-solid fa-pen-circle"></i></a></li>
+    </ul>
+    </div>
+
 {% endfor %}
-hello
+</section>
 {% endblock content %}

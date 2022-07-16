@@ -24,3 +24,7 @@ def select_all():
         session = Session(row['name'], row['tod'], row['doy'], row['length'], row['capacity'], row['description'], row['level'], row['id'])
         sessions.append(session)
     return sessions
+
+def delete_all():
+    sql = "DELETE FROM sessions"
+    run_sql(sql)

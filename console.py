@@ -7,10 +7,21 @@ import repositories.gym_repository as gym_repo
 import repositories.member_repository as member_repo
 import repositories.session_repository as session_repo
 
+session_repo.delete_all()
+gym_repo.delete_all()
+
 session1 = Session('Body Pump', '12:00', '22-09-22', 60, 10, "BODYPUMP is a fast-paced, barbell-based workout that's specifically designed to help you get lean, toned and fit.", 'Expert')
 session2 = Session('Hot Yoga','12:30', '22-09-22', 80, 12, 'Hot yoga is a vigorous form of yoga performed in a very warm and humid studio.', 'Intermediate')
+session3 = Session('Yoga', '13:00', '22-09-22', 80, 10, 'Yoga is a mind and body practice. Various styles of yoga combine physical postures, breathing techniques, and meditation or relaxation.', 'Beginner')
+session4 = Session('Zumba', '13:15', '22-09-22', 45, 20, 'Zumba is a form of fitness class in which you burn off calories by dancing to different kinds of lively tunes.', 'Beginner')
+session5 = Session('Crossfit', '14:00', '22-09-22', 120, 8, 'A form of high intensity interval training, CrossFit is a strength and conditioning workout that is made up of functional movement performed at a high intensity level.', 'Expert')
+session6 = Session('HIIT', '15:00', '22-09-22', 40, 14, 'This type of training involves repeated bouts of high intensity effort followed by varied recovery times.', 'Beginner')
 session_repo.save(session1)
 session_repo.save(session2)
+session_repo.save(session3)
+session_repo.save(session4)
+session_repo.save(session5)
+session_repo.save(session6)
 
 # sessions = session_repo.select_all()
 # for session in sessions:

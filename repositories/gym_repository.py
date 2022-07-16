@@ -13,4 +13,8 @@ def save(gym):
     results = run_sql(sql, values)
     gym.id = results[0]['id']
     return gym
+
+def delete_all():
+    sql = "DELETE FROM gyms"
+    run_sql(sql)
     

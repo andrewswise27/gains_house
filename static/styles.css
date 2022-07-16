@@ -45,9 +45,34 @@ body {
     display: flex;
     margin-left: 0px;
     background-color: darkgray;
-    margin-bottom: 800px;
 }
 
 main {
     margin-top: 6rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+div {
+    display: inline-flex;
+    width: 300px;
+    padding: 10px;
+    border: 5px solid gray;
+    margin-top: 10px;
+    border-radius: 2rem;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 1rem;
+    text-align: center;
+    font-size: 0.8rem;
+  }
+
+.session_box_list {
+    list-style-type: none;
+}
+
+body footer  {
+    background-color: black;
+    height: 5rem;
+    margin: 0;
+    width: 100%;
 }
