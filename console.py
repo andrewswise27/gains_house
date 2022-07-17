@@ -9,6 +9,7 @@ import repositories.session_repository as session_repo
 
 session_repo.delete_all()
 gym_repo.delete_all()
+member_repo.delete_all()
 
 session1 = Session('Body Pump', '12:00', '22-09-22', 60, 10, "BODYPUMP is a fast-paced, barbell-based workout that's specifically designed to help you get lean, toned and fit.", 'Expert')
 session2 = Session('Hot Yoga','12:30', '22-09-22', 80, 12, 'Hot yoga is a vigorous form of yoga performed in a very warm and humid studio.', 'Intermediate')
@@ -22,6 +23,16 @@ session_repo.save(session3)
 session_repo.save(session4)
 session_repo.save(session5)
 session_repo.save(session6)
+
+member1 = Member('Chris', 25, 'British', '07546727384', 'holt_hogan@gains.co.uk')
+member2 = Member('Nathan', 30, 'British', '07625738192', 'kawasaki_ninja@gains.co.uk')
+member3 = Member('Stuart', 21, 'British', '07829384761', 'young_guns@gains.co.uk')
+member4 = Member('Jack', 25, 'British', '07716253891', 'pingpong_champ@gains.co.uk')
+
+member_repo.save(member1)
+member_repo.save(member2)
+member_repo.save(member3)
+member_repo.save(member4)
 
 # sessions = session_repo.select_all()
 # for session in sessions:

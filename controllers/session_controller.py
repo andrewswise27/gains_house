@@ -12,5 +12,7 @@ def sessions():
     sessions = session_repository.select_all()
     return render_template("/sessions/index.html", sessions=sessions)
 
-# @sessions_blueprint.route("/session/description/")
-# def description(id) ------- render template for individual session. show the description and people booked
+@sessions_blueprint.route("/session/description/<id>")
+def description(id):
+    session = session_repository.select_session(id)
+    return render_template("sessions/description.html", session=session)

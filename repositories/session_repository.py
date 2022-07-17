@@ -28,3 +28,10 @@ def select_all():
 def delete_all():
     sql = "DELETE FROM sessions"
     run_sql(sql)
+
+def select_session(id):
+    sql = "SELECT * FROM sessions WHERE id = %s"
+    values = [id]
+    results = run_sql(sql, values)[0]
+    session = Session(results['name'], results['tod'], results['doy'], results['length'], results['capacity'], results['description'], results['level'], results['id'])
+    return session

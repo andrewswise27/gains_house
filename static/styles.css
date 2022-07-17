@@ -4,7 +4,7 @@
     margin: 0px;
     justify-content: space-between;
     align-content: center;
-    background-color: black;
+    background-color: gray;
     position: fixed; 
     top: 0; 
     width: 100%; 
@@ -44,7 +44,7 @@
 body {
     display: flex;
     margin-left: 0px;
-    background-color: darkgray;
+    background-color: #E8AE68;
 }
 
 main {
@@ -52,11 +52,11 @@ main {
     font-family: 'Courier New', Courier, monospace;
 }
 
-div {
+#session_boxes {
     display: inline-flex;
-    width: 300px;
+    width: 290px;
     padding: 10px;
-    border: 5px solid gray;
+    border: 3px solid gray;
     margin-top: 10px;
     border-radius: 2rem;
     margin-right: 0;
@@ -64,10 +64,52 @@ div {
     margin-left: 1rem;
     text-align: center;
     font-size: 0.8rem;
+    background-color: #FFD275;
+    color: #080357;
+  }
+
+.member_boxes {
+    display: inline-flex;
+    width: 290px;
+    padding: 10px;
+    border: 3px solid gray;
+    margin-top: 10px;
+    border-radius: 2rem;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 1rem;
+    text-align: center;
+    font-size: 0.8rem;
+    background-color: #FFD275;
+    color: #080357;
+}
+
+.member_box_list {
+    list-style-type: none;
+}
+
+ .create {
+    display: block;
+    width: 290px;
+    padding: 10px;
+    border: 3px solid gray;
+    margin-top: 10px;
+    border-radius: 2rem;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 1rem;
+    text-align: left;
+    font-size: 0.8rem;
+    background-color: #FFD275;
+    color: #080357;
   }
 
 .session_box_list {
     list-style-type: none;
+}
+
+.session_buttons {
+    font-family:'Courier New', Courier, monospace
 }
 
 body footer  {
