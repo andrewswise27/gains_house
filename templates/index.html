@@ -3,39 +3,39 @@
     <div class="create">
     <form action="/home" method="post">
         <label for="session">Create a Session: </label>
-        <input type="text" placeholder="Session Name">
+        <input type="text" name="session_name" placeholder="Session Name">
         <br>
         <label for="time">What time?</label>
-        <input type="text" placeholder="eg. 13:00">
+        <input type="text" name="tod" placeholder="eg. 13:00">
         <br>
         <label for="date">What date?</label>
-        <input type="text" placeholder="eg. 22-09-22">
+        <input type="text" name="doy" placeholder="eg. 22-09-22">
         <br>
         <label for="level">Level:</label>
-        <select name="level_selection" id="level">
+        <select name="level" id="level">
             <option value="Beginner">Beginner</option>
             <option value="Intermediate">Intermediate</option>
             <option value="Expert">Expert</option>
         </select>
         <br>
         <label for="description">Description:</label>
-        <textarea name="session_description" id="" cols="30" rows="5"></textarea>
+        <textarea name="description" id="" cols="30" rows="5"></textarea>
         <input class="btn btn--action" type="submit" value="Submit">
     </form>
     </div>
     <div class="create">
         <form action="/home" method="post">
             <label for="member">Create a Member: </label>
-            <input type="text" placeholder="Member Name">
+            <input type="text" name="name" placeholder="Member Name">
             <br>
             <label for="age">Age:</label>
-            <input type="text" placeholder="Age">
+            <input type="text" name="age" placeholder="Age">
             <br>
             <label for="date">Nationality:</label>
-            <input type="text" placeholder="Nationality">
+            <input type="text" name="nationality" placeholder="Nationality">
             <br>
             <label for="mob_number">Mobile Number:</label>
-            <input type="text"  placeholder="Mobile Number">
+            <input type="text" name="mob_number" placeholder="Mobile Number">
             <br>
             <label for="email">Email:</label>
             <input type="text" name="email" placeholder="Email">
