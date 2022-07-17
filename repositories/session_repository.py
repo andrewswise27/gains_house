@@ -35,3 +35,8 @@ def select_session(id):
     results = run_sql(sql, values)[0]
     session = Session(results['name'], results['tod'], results['doy'], results['length'], results['capacity'], results['description'], results['level'], results['id'])
     return session
+
+def edit(session):
+    sql = "UPDATE sessions SET (name, tod, doy, length, capacity, description, level) = (%s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
+    values = [session.name, session.tod, session.doy, session.length, session.capacity, session.description, session.level, session.id]
+    run_sql(sql, values)

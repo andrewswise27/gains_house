@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="create">
+    <form action="/sessions/edit/{{session.id}}" method="post">
+        <label for="session">Edit Session:</label>
+        <input type="text" name="session_name" value="{{session.name}}">
+        <br>
+        <label for="time">What time?</label>
+        <input type="text" name="tod" value="{{session.tod}}">
+        <br>
+        <label for="date">What date?</label>
+        <input type="text" name="doy" value="{{session.doy}}">
+        <br>
+        <label for="length">Length:</label>
+        <input type="text" name="length" value="{{session.length}}">
+        <br>
+        <label for="capacity">Capacity:</label>
+        <input type="text" name="capacity" id="" value="{{session.capacity}}">
+        <br>
+        <label for="level">Level:</label>
+        <select name="level" id="level">
+            <option {% if session.level == "Beginner" %} selected {% endif %} value="Beginner">Beginner</option>
+            <option {% if session.level == "Intermediate" %} selected {% endif %} value="Intermediate">Intermediate</option>
+            <option {% if session.level == "Expert" %} selected {% endif %} value="Expert">Expert</option>
+        </select>
+        <br>
+        <label for="description">Description:</label>
+        <textarea name="description" aria-valuenow="{{session.description}}" id="" cols="30" rows="5"></textarea>
+        <input class="btn btn--action" type="submit" value="Submit">
+    </form>
+    </div>
+{% endblock content %}
