@@ -28,6 +28,18 @@ def delete_all():
     sql = "DELETE FROM members"
     run_sql(sql)
 
+def select_member(id):
+    sql = "SELECT * FROM members WHERE id = %s"
+    values = [id]
+    results = run_sql(sql, values)[0]
+    member = Member(results['name'], results['age'], results['nationality'], results['mob_number'], results['email'], results['id'])
+    return member
+
+def edit(member):
+    sql = "UPDATE members SET (name, age, nationality, mob_number, email) = (%s, %s, %s, %s, %s) WHERE id = %s"
+    values = [member.name, member.age, member.nationality, member.mob_number, member.email, member.id]
+    run_sql(sql, values)
+
 
 
     

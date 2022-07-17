@@ -11,7 +11,7 @@
     <b><label for="mobile_number">Mobile#:</label></b>{{member.mob_number}}</li>
     <br>
     <li><b><label for="email">Email:</label></b>{{member.email}}</li>
-    <li><label for="edit_member">Edit Member:</label><a href="/members/edit"><button><i class="fa-solid fa-pen-to-square"></button></i></a></li>
+    <li><label for="edit_member">Edit Member:</label><a href="/members/edit/{{member.id}}"><button><i class="fa-solid fa-pen-to-square"></button></i></a></li>
     </ul>
     </div>
 {% endfor %}

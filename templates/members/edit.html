@@ -1,23 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="create">
-    <form action="/home" method="post">
-        <label for="member">Edit Member: {{member.id}} </label>
-        <input type="text" name="name" placeholder="Member Name">
+    <form action="/members/edit/{{member.id}}" method="post">
+        <label for="member">Edit Member:</label>
+        <input type="text" name="name" value="{{member.name}}">
         <br>
         <label for="age">Age:</label>
-        <input type="text" name="age" placeholder="Age">
+        <input type="text" name="age" value="{{member.age}}">
         <br>
         <label for="date">Nationality:</label>
-        <input type="text" name="nationality" placeholder="Nationality">
+        <input type="text" name="nationality" value="{{member.nationality}}">
         <br>
         <label for="mob_number">Mobile Number:</label>
-        <input type="text" name="mob_number" placeholder="Mobile Number">
+        <input type="text" name="mob_number" value="{{member.mob_number}}">
         <br>
         <label for="email">Email:</label>
-        <input type="text" name="email" placeholder="Email">
+        <input type="text" name="email" value="{{member.email}}">
         <br>
         <input class="btn btn--action" type="submit" value="Submit">
-    </form>
+</form>
 </div>
 {% endblock content %}
