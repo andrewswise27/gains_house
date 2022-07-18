@@ -1,12 +1,12 @@
 from sqlite3 import SQLITE_ALTER_TABLE
 from db.run_sql import run_sql
 
-from models.gym import Gym
+from models.booked_session import BookedSession
 from models.member import Member
 from models.session import Session
 
 from repositories import member_repository
-from repositories import gym_repository
+from repositories import booked_session_repository
 
 def save(session):
     sql = "INSERT INTO sessions (name, timedate, length, capacity, level, description) VALUES (%s, %s, %s, %s, %s, %s) RETURNING ID"

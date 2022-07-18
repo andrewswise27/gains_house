@@ -1,13 +1,6 @@
 DROP TABLE members;
 DROP TABLE sessions;
-DROP TABLE gyms;
 DROP TABLE booked_sessions;
-
-CREATE TABLE gyms (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(255),
-    location VARCHAR(255)
-);
 
 CREATE TABLE sessions (
     id SERIAL PRIMARY KEY,
