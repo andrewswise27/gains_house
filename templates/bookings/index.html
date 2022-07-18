@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="booking_div">
+    <form action="/book/{{session.id}}" method="post">
+        <label for="member">Select a Member:</label>
+        <select name="member_id" id="member">
+            {% for member in members %}
+            <option value="{{ member.id }}">{{member.name}}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="session">Make a<input type="text" name="session_id" value="{{sessions.id}}" hidden><b> {{sessions.name}} </b>booking for selected member on <b> {{sessions.timedate}}</b>.</label>
+        
+        <input id="booking_button" class="btn btn--action" type="submit" value="Submit">
+        </form>
+    </div>
+{% endblock content %}

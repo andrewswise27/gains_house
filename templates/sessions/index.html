@@ -12,8 +12,9 @@
     <li><b><label for="session_capacity">Capacity:</label></b>{{session.capacity}} &nbsp; 
     <b><label for="session_level">Level:</label></b>{{session.level}}</li>
     <br>
-    <li><a href="/session/book"><button class="session_buttons">Book Session</button></a> <a href="/session/description/{{ session.id }}"><button class="session_buttons">Session Info</button></a></li>
-    <li><label for="edit_session">Edit Session:</label><a href="/sessions/edit/{{session.id}}"><button><i class="fa-solid fa-pen-to-square"></button></i></a></li>
+    <li><a href="/book/{{session.id}}"><button class="session_buttons">Book Session</button></a> <a href="/session/description/{{ session.id }}"><button class="session_buttons">Session Info</button></a></li>
+    <br>
+    <li><label for="edit_session">Edit Session:</label><a href="/sessions/edit/{{session.id}}"><button><i id="edit_button" class="fa-solid fa-pen-to-square"></button></i></a></li>
     </ul>
     </div>
 {% endfor %}

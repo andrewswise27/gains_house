@@ -17,4 +17,11 @@ def save(gym):
 def delete_all():
     sql = "DELETE FROM gyms"
     run_sql(sql)
+
+def book_session(booking):
+    sql = "INSERT INTO booked_sessions (member_id, session_id) VALUES (%s, %s)"
+    values = [booking.member.id, booking.session.id]
+    results = run_sql(sql, values)
+    booking.id = results[0]['id']
+    return booking
     
