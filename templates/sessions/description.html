@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     {{session.description}}
+    {% for member in members %}
+        {{member.name}}
+    {% endfor %}
 {% endblock content %}

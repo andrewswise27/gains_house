@@ -16,7 +16,8 @@ def sessions():
 @sessions_blueprint.route("/session/description/<id>")
 def description(id):
     session = session_repository.select_session(id)
-    return render_template("sessions/description.html", session=session)
+    members = booked_session_repository.booked_members(session)
+    return render_template("sessions/description.html", session=session, members=members)
 
 @sessions_blueprint.route("/home", methods=['POST'])
 def create_session():

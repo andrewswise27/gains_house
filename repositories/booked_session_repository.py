@@ -12,4 +12,16 @@ def book_session(booking):
     values = [booking.member_id, booking.session_id]
     results = run_sql(sql, values)
     booking.id = results[0]['id']
+
+def booked_members(session):
+    members = []
+    sql = "SELECT members.* FROM members INNER JOIN booked_sessions ON booked_sessions.member_id = members.id WHERE booked_sessions.session_id = %s"
+    values = [session.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        member = Member(row['name'], row['age'], row['nationality'], row['mob_number'], row['email'])
+        members.append(member)
+    
+    return members
     
