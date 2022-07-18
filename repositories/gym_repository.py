@@ -19,9 +19,9 @@ def delete_all():
     run_sql(sql)
 
 def book_session(booking):
-    sql = "INSERT INTO booked_sessions (member_id, session_id) VALUES (%s, %s)"
-    values = [booking.member.id, booking.session.id]
+    sql = "INSERT INTO booked_sessions (member_id, session_id) VALUES (%s, %s) RETURNING ID"
+    values = [booking[0].id, booking[1].id]
     results = run_sql(sql, values)
-    booking.id = results[0]['id']
+    booking.id = results[0][1]
     return booking
     

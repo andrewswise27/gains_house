@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="booking_div">
-    <form action="/book/{{session.id}}" method="post">
+    <form action="/book/{{session.id}}" method="POST">
         <label for="member">Select a Member:</label>
         <select name="member_id" id="member">
             {% for member in members %}

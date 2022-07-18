@@ -14,7 +14,7 @@ def booking(id):
     sessions = session_repository.select_session(id)
     return render_template("/bookings/index.html", members=members, sessions=sessions)
 
-@gyms_blueprint.route("/book/<id>", methods=['POST'])
+@gyms_blueprint.route("/book/", methods=['POST'])
 def book_member():
     member_id = request.form['member_id']
     session_id = request.form['session_id']

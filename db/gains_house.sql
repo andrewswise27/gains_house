@@ -30,7 +30,7 @@ CREATE TABLE members (
 
 CREATE TABLE booked_sessions (
     id SERIAL PRIMARY KEY,
-    booked_member INT NOT NULL REFERENCES members(id) ON DELETE CASCADE,
-    session_booked INT NOT NULL REFERENCES sessions(id) ON DELETE CASCADE
+    member_id INT NOT NULL REFERENCES members(id) ON DELETE CASCADE,
+    session_id INT NOT NULL REFERENCES sessions(id) ON DELETE CASCADE
 );
 
