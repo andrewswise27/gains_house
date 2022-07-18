@@ -9,8 +9,8 @@ from repositories import member_repository
 from repositories import gym_repository
 
 def save(session):
-    sql = "INSERT INTO sessions (name, tod, doy, length, capacity, level, description) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING ID"
-    values = [session.name, session.tod, session.doy, session.length, session.capacity, session.level, session.description]
+    sql = "INSERT INTO sessions (name, timedate, length, capacity, level, description) VALUES (%s, %s, %s, %s, %s, %s) RETURNING ID"
+    values = [session.name, session.timedate, session.length, session.capacity, session.level, session.description]
     results = run_sql(sql, values)
     session.id = results[0]['id']
     return session
@@ -18,10 +18,10 @@ def save(session):
 def select_all():
     sessions = []
 
-    sql = "SELECT * FROM sessions"
+    sql = "SELECT * FROM sessions ORDER BY timedate"
     results = run_sql(sql)
     for row in results:
-        session = Session(row['name'], row['tod'], row['doy'], row['length'], row['capacity'], row['description'], row['level'], row['id'])
+        session = Session(row['name'], row['timedate'], row['length'], row['capacity'], row['description'], row['level'], row['id'])
         sessions.append(session)
     return sessions
 
@@ -33,10 +33,10 @@ def select_session(id):
     sql = "SELECT * FROM sessions WHERE id = %s"
     values = [id]
     results = run_sql(sql, values)[0]
-    session = Session(results['name'], results['tod'], results['doy'], results['length'], results['capacity'], results['description'], results['level'], results['id'])
+    session = Session(results['name'], results['timedate'], results['length'], results['capacity'], results['description'], results['level'], results['id'])
     return session
 
 def edit(session):
-    sql = "UPDATE sessions SET (name, tod, doy, length, capacity, description, level) = (%s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
-    values = [session.name, session.tod, session.doy, session.length, session.capacity, session.description, session.level, session.id]
+    sql = "UPDATE sessions SET (name, timedate, length, capacity, description, level) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
+    values = [session.name, session.timedate, session.length, session.capacity, session.description, session.level, session.id]
     run_sql(sql, values)

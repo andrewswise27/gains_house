@@ -5,11 +5,8 @@
         <label for="session">Edit Session:</label>
         <input type="text" name="session_name" value="{{session.name}}">
         <br>
-        <label for="time">What time?</label>
-        <input type="text" name="tod" value="{{session.tod}}">
-        <br>
-        <label for="date">What date?</label>
-        <input type="text" name="doy" value="{{session.doy}}">
+        <label for="time">When is the session?</label>
+        <input type="datetime-local" name="timedate" value="{{session.timedate}}">
         <br>
         <label for="length">Length:</label>
         <input type="text" name="length" value="{{session.length}}">
@@ -25,7 +22,7 @@
         </select>
         <br>
         <label for="description">Description:</label>
-        <textarea name="description" aria-valuenow="{{session.description}}" id="" cols="30" rows="5"></textarea>
+        <textarea name="description" id="" cols="30" rows="5">{{session.description}}</textarea>
         <input class="btn btn--action" type="submit" value="Submit">
     </form>
     </div>

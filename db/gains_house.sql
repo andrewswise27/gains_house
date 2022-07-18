@@ -12,8 +12,7 @@ CREATE TABLE gyms (
 CREATE TABLE sessions (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    tod TEXT,
-    doy TEXT,
+    timedate TIMESTAMP,
     length INT,
     capacity INT,
     level VARCHAR(255),

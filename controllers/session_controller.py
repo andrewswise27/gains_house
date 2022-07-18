@@ -21,14 +21,13 @@ def description(id):
 @sessions_blueprint.route("/home", methods=['POST'])
 def create_session():
     name = request.form['session_name']
-    tod = request.form['tod']
-    doy = request.form['doy']
+    timedate = request.form['timedate']
     length = request.form['length']
     capacity = request.form['capacity']
     description = request.form['description']
     level = request.form['level']
     
-    session = Session(name, tod, doy, length, capacity, description, level)
+    session = Session(name, timedate, length, capacity, description, level)
 
     session_repository.save(session)
     return redirect('/sessions')
@@ -41,8 +40,7 @@ def edit_view(id):
 @sessions_blueprint.route("/sessions/edit/<id>", methods=['POST'])
 def edit(id):
     name = request.form['session_name']
-    tod = request.form['tod']
-    doy = request.form['doy']
+    timedate = request.form['timedate']
     length = request.form['length']
     capacity = request.form['capacity']
     description = request.form['description']
@@ -50,8 +48,7 @@ def edit(id):
 
     session = session_repository.select_session(id)
     session.name = name
-    session.tod = tod
-    session.doy = doy 
+    session.timedate = timedate
     session.length = length
     session.capacity = capacity
     session.description = description

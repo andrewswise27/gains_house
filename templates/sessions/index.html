@@ -4,11 +4,10 @@
 {% for session in sessions %}
     <div class="session_boxes" id="session_boxes">
     <ul class="session_box_list">
-    <li> <b><label for="session_name">Session:</label></b>{{session.name}} &nbsp; 
-    <b><label for="session_time">Time:</label></b>{{session.tod}}</li>
+    <li> <b><label for="session_name">Session:</label></b>{{session.name}}</li> 
+    <li><b><label for="session_timedate">Date & Time:</label></b>{{session.timedate}}</li>
     <br>
-    <li><b><label for="session_date">Date:</label></b>{{session.doy}} &nbsp; 
-    <b><label for="session_length">Duration:</label></b>{{session.length}}</li>
+    <li><b><label for="session_length">Duration (min):</label></b>{{session.length}}</li>
     <br>
     <li><b><label for="session_capacity">Capacity:</label></b>{{session.capacity}} &nbsp; 
     <b><label for="session_level">Level:</label></b>{{session.level}}</li>
