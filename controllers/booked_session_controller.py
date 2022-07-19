@@ -1,6 +1,7 @@
 from crypt import methods
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
+from controllers.session_controller import sessions
 from models.booked_session import BookedSession
 from repositories import booked_session_repository
 from repositories import member_repository
@@ -18,6 +19,12 @@ def booking(id):
 def book_member():
     member_id = request.form['member_id']
     session_id = request.form['session_id']
+    sessions = session_repository.select_session(session_id)
     booking = BookedSession(member_id, session_id)
-    booked_session_repository.book_session(booking)
+    num_booked = booked_session_repository.session_full(session_id)
+    capacity = session_repository.get_capacity(session_id)
+    if num_booked >= capacity:
+        return render_template('/bookings/error.html', sessions=sessions)
+    else:
+        booked_session_repository.book_session(booking)
     return redirect('/sessions')

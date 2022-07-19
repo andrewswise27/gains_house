@@ -24,4 +24,9 @@ def booked_members(session):
         members.append(member)
     
     return members
-    
+
+def session_full(session):
+    sql = "SELECT COUNT(member_id) FROM booked_sessions WHERE session_id = %s;"
+    values = [session]
+    results = run_sql(sql, values)
+    return results

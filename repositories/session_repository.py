@@ -45,3 +45,9 @@ def delete(id):
     sql = "DELETE FROM sessions WHERE id = %s"
     values = [id]
     run_sql(sql, values)
+
+def get_capacity(id):
+    sql = "SELECT capacity FROM sessions WHERE id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+    return results
