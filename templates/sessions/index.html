@@ -15,6 +15,7 @@
     <li><a href="/book/{{session.id}}"><button class="session_buttons">Book Session</button></a> <a href="/session/description/{{ session.id }}"><button class="session_buttons">Session Info</button></a></li>
     <br>
     <li><label for="edit_session">Edit Session:</label><a href="/sessions/edit/{{session.id}}"><button><i class="fa-solid fa-pen-to-square"></i></button></a></li>
+    <li><form action="/sessions/delete/{{session.id}}" method="POST"><label for="delete">Delete Session:</label><button><i class="fa-solid fa-trash-can"></i></button></form></li>
     </ul>
     </div>
 {% endfor %}
