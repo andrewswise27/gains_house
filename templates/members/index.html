@@ -11,7 +11,8 @@
     <b><label for="mobile_number">Mobile#:</label></b>{{member.mob_number}}</li>
     <br>
     <li><b><label for="email">Email:</label></b>{{member.email}}</li>
-    <li><label for="edit_member">Edit Member:</label><a href="/members/edit/{{member.id}}"><button><i class="fa-solid fa-pen-to-square"></button></i></a></li>
+    <li><label for="edit_member">Edit Member:</label><a href="/members/edit/{{member.id}}"><button><i class="fa-solid fa-user-pen"></i></button></a></li>
+    <li><form action="/members/delete/{{member.id}}" method="POST"><label for="delete">Delete Member:</label><button><i class="fa-solid fa-trash-can"></i></button></form></li>
     </ul>
     </div>
 {% endfor %}

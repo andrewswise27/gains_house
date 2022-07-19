@@ -18,8 +18,6 @@ def booking(id):
 def book_member():
     member_id = request.form['member_id']
     session_id = request.form['session_id']
-    # member = member_repository.select_member(member_id)
-    # session = session_repository.select_session(session_id)
     booking = BookedSession(member_id, session_id)
     booked_session_repository.book_session(booking)
     return redirect('/sessions')

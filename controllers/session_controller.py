@@ -19,7 +19,7 @@ def description(id):
     members = booked_session_repository.booked_members(session)
     return render_template("sessions/description.html", session=session, members=members)
 
-@sessions_blueprint.route("/home/sesh", methods=['POST'])
+@sessions_blueprint.route("/home/session", methods=['POST'])
 def create_session():
     print(request.form)
     name = request.form['session_name']
@@ -33,8 +33,7 @@ def create_session():
     session = Session(name, timedate, length, capacity, description, level)
 
     session_repository.save(session)
-    return redirect("/home")
-    # return redirect('/sessions')
+    return redirect('/sessions')
 
 @sessions_blueprint.route("/sessions/edit/<id>")
 def edit_view(id):
@@ -61,3 +60,8 @@ def edit(id):
     session_repository.edit(session)
 
     return redirect("/sessions")
+
+@sessions_blueprint.route('/sessions/delete/<id>', methods=['POST'])
+def delete_session(id):
+    session_repository.delete(id)
+    return redirect('/sessions')

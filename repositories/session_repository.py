@@ -40,3 +40,8 @@ def edit(session):
     sql = "UPDATE sessions SET (name, timedate, length, capacity, description, level) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
     values = [session.name, session.timedate, session.length, session.capacity, session.description, session.level, session.id]
     run_sql(sql, values)
+
+def delete(id):
+    sql = "DELETE FROM sessions WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
