@@ -45,4 +45,10 @@ def delete(id):
     values = [id]
     run_sql(sql, values)
 
+def get_membership_type(id):
+    sql = "SELECT membership_type FROM members WHERE id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+    return results
+
     

@@ -51,3 +51,9 @@ def get_capacity(id):
     values = [id]
     results = run_sql(sql, values)
     return results
+
+def get_session_time(id):
+    sql = "SELECT timedate :: timestamp :: time  FROM sessions WHERE id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+    return results
