@@ -33,6 +33,10 @@ member_repo.save(member2)
 member_repo.save(member3)
 member_repo.save(member4)
 
+time = session_repo.get_session_time(98)
+
+print(time)
+
 # sessions = session_repo.select_all()
 # for session in sessions:
 #     print(session.__dict__)

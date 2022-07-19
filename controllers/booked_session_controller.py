@@ -25,7 +25,7 @@ def book_member():
     capacity = session_repository.get_capacity(session_id)
     membership_type = member_repository.get_membership_type(member_id)
     tod = session_repository.get_session_time(session_id)
-    if membership_type == "Bronze" and tod > '17:00':
+    if membership_type == "Bronze" and tod >= '17:00:00':
         return render_template('/bookings/membershiptype.html', sessions=sessions)
     elif num_booked >= capacity:
         return render_template('/bookings/error.html', sessions=sessions)
