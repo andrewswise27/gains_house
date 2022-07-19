@@ -1,7 +1,10 @@
 import pdb
+
+from psycopg2 import Timestamp
 from models.session import Session
 from models.booked_session import BookedSession
 from models.member import Member
+from datetime import datetime
 
 import repositories.booked_session_repository as booked_session_repo
 import repositories.member_repository as member_repo
@@ -33,7 +36,7 @@ member_repo.save(member2)
 member_repo.save(member3)
 member_repo.save(member4)
 
-time = session_repo.get_session_time(98)
+time = session_repo.get_session_time(148)
 
 print(time)
 

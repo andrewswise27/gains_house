@@ -30,3 +30,4 @@ def session_full(session):
     values = [session]
     results = run_sql(sql, values)
     return results
+

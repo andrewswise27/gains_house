@@ -58,4 +58,5 @@ def get_session_time(id):
     values = [id]
     results = run_sql(sql, values)
     time = (results[0][0])
-    return time
+    seq = int(time.strftime("%H%M%S"))
+    return seq
