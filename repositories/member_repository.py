@@ -49,6 +49,7 @@ def get_membership_type(id):
     sql = "SELECT membership_type FROM members WHERE id = %s"
     values = [id]
     results = run_sql(sql, values)
-    return results
+    membershiptype = (results[0][0])
+    return membershiptype
 
     

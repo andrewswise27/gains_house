@@ -36,9 +36,11 @@ member_repo.save(member2)
 member_repo.save(member3)
 member_repo.save(member4)
 
-time = session_repo.get_session_time(148)
+# time = session_repo.get_session_time(148)
+member = member_repo.get_membership_type(110)
 
-print(time)
+print(member)
+# print(time)
 
 # sessions = session_repo.select_all()
 # for session in sessions:
