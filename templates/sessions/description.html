@@ -1,7 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-    {{session.description}}
+<div class="booking_div">
+    <b>Members Booked on Session:</b>
+    <ul>
     {% for member in members %}
-        {{member.name}}
+    <li>{{member.name}}</li>
     {% endfor %}
+    </ul>
+    <p><b>Session Description:</b></p>
+    {{session.description}}
+    
+</div>
 {% endblock content %}

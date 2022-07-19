@@ -120,6 +120,11 @@ main {
     color: #080357;
 }
 
+.booking_div ul li{
+    display: inline-block;
+    list-style: none;
+}
+
 .session_box_list {
     list-style-type: none;
 }

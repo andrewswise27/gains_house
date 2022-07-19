@@ -19,8 +19,9 @@ def description(id):
     members = booked_session_repository.booked_members(session)
     return render_template("sessions/description.html", session=session, members=members)
 
-@sessions_blueprint.route("/home", methods=['POST'])
+@sessions_blueprint.route("/home/sesh", methods=['POST'])
 def create_session():
+    print(request.form)
     name = request.form['session_name']
     timedate = request.form['timedate']
     length = request.form['length']
@@ -28,10 +29,12 @@ def create_session():
     description = request.form['description']
     level = request.form['level']
     
+    
     session = Session(name, timedate, length, capacity, description, level)
 
     session_repository.save(session)
-    return redirect('/sessions')
+    return redirect("/home")
+    # return redirect('/sessions')
 
 @sessions_blueprint.route("/sessions/edit/<id>")
 def edit_view(id):
