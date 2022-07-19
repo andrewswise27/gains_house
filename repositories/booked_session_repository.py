@@ -20,7 +20,7 @@ def booked_members(session):
     results = run_sql(sql, values)
 
     for row in results:
-        member = Member(row['name'], row['age'], row['nationality'], row['mob_number'], row['email'])
+        member = Member(row['name'], row['age'], row['nationality'], row['mob_number'], row['email'], row['membership_type'])
         members.append(member)
     
     return members

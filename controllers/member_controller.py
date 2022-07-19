@@ -20,8 +20,9 @@ def create_member():
     nationality = request.form['nationality']
     mob_number = request.form['mob_number']
     email = request.form['email']
+    membership_type = request.form['membership_type']
     
-    member = Member(name, age, nationality, mob_number, email)
+    member = Member(name, age, nationality, mob_number, email, membership_type)
 
     member_repository.save(member)
     return redirect('/members')
@@ -38,6 +39,7 @@ def edit(id):
     nationality = request.form['nationality']
     mob_number = request.form['mob_number']
     email = request.form['email']
+    membership_type = request.form['membership_type']
 
     member = member_repository.select_member(id)
     member.name = name
@@ -45,6 +47,7 @@ def edit(id):
     member.nationality = nationality
     member.mob_number = mob_number
     member.email = email
+    member.membership_type = membership_type
 
     member_repository.edit(member)
     
