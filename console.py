@@ -1,7 +1,10 @@
 import pdb
+
+from psycopg2 import Timestamp
 from models.session import Session
 from models.booked_session import BookedSession
 from models.member import Member
+from datetime import datetime
 
 import repositories.booked_session_repository as booked_session_repo
 import repositories.member_repository as member_repo
@@ -23,15 +26,21 @@ session_repo.save(session4)
 session_repo.save(session5)
 session_repo.save(session6)
 
-member1 = Member('Chris', 25, 'British', '07546727384', 'holt_hogan@gains.co.uk')
-member2 = Member('Nathan', 30, 'British', '07625738192', 'kawasaki_ninja@gains.co.uk')
-member3 = Member('Stuart', 21, 'British', '07829384761', 'young_guns@gains.co.uk')
-member4 = Member('Jack', 25, 'British', '07716253891', 'pingpong_champ@gains.co.uk')
+member1 = Member('Chris', 25, 'British', '07546727384', 'holt_hogan@gains.co.uk', 'Gold')
+member2 = Member('Nathan', 30, 'British', '07625738192', 'kawasaki_ninja@gains.co.uk', 'Bronze')
+member3 = Member('Stuart', 21, 'British', '07829384761', 'young_guns@gains.co.uk', 'Bronze')
+member4 = Member('Jack', 25, 'British', '07716253891', 'pingpong_champ@gains.co.uk', 'Gold')
 
 member_repo.save(member1)
 member_repo.save(member2)
 member_repo.save(member3)
 member_repo.save(member4)
+
+# time = session_repo.get_session_time(148)
+member = member_repo.get_membership_type(110)
+
+print(member)
+# print(time)
 
 # sessions = session_repo.select_all()
 # for session in sessions:

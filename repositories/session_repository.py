@@ -1,5 +1,6 @@
 from sqlite3 import SQLITE_ALTER_TABLE
 from db.run_sql import run_sql
+from datetime import datetime
 
 from models.booked_session import BookedSession
 from models.member import Member
@@ -51,3 +52,11 @@ def get_capacity(id):
     values = [id]
     results = run_sql(sql, values)
     return results
+
+def get_session_time(id):
+    sql = "SELECT timedate :: timestamp :: time  FROM sessions WHERE id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+    time = (results[0][0])
+    seq = int(time.strftime("%H%M%S"))
+    return seq

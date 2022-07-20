@@ -1,4 +1,6 @@
 from crypt import methods
+from datetime import datetime
+from time import time
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from controllers.session_controller import sessions
@@ -23,7 +25,11 @@ def book_member():
     booking = BookedSession(member_id, session_id)
     num_booked = booked_session_repository.session_full(session_id)
     capacity = session_repository.get_capacity(session_id)
-    if num_booked >= capacity:
+    membership_type = member_repository.get_membership_type(member_id)
+    tod = session_repository.get_session_time(session_id)
+    if membership_type == "Bronze" and tod >= 170000:
+        return render_template('/bookings/membershiptype.html', sessions=sessions)
+    elif num_booked >= capacity:
         return render_template('/bookings/error.html', sessions=sessions)
     else:
         booked_session_repository.book_session(booking)
