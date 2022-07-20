@@ -4,18 +4,30 @@
 {% for session in sessions %}
     <div class="session_boxes" id="session_boxes">
     <ul class="session_box_list">
-    <li> <b><label for="session_name">Session:</label></b>{{session.name}}</li> 
-    <li><b><label for="session_timedate">Date & Time:</label></b>{{session.timedate}}</li>
-    <br>
-    <li><b><label for="session_length">Duration (min):</label></b>{{session.length}}</li>
-    <br>
-    <li><b><label for="session_capacity">Capacity:</label></b>{{session.capacity}} &nbsp; 
-    <b><label for="session_level">Level:</label></b>{{session.level}}</li>
-    <br>
-    <li><a href="/book/{{session.id}}"><button class="session_buttons">Book Session</button></a> <a href="/session/description/{{ session.id }}"><button class="session_buttons">Session Info</button></a></li>
-    <br>
-    <li><label for="edit_session">Edit Session:</label><a href="/sessions/edit/{{session.id}}"><button><i class="fa-solid fa-pen-to-square"></i></button></a></li>
-    <li><form action="/sessions/delete/{{session.id}}" method="POST"><label for="delete">Delete Session:</label><button><i class="fa-solid fa-trash-can"></i></button></form></li>
+        <li> <b><label for="session_name">Session:</label></b>{{session.name}}</li> 
+        <li><b><label for="session_timedate">Date & Time:</label></b>{{session.timedate}}</li>
+        <br>
+        <li><b><label for="session_length">Duration (min):</label></b>{{session.length}}</li>
+        <br>
+        <li><b><label for="session_capacity">Capacity:</label></b>{{session.capacity}} &nbsp; 
+        <b><label for="session_level">Level:</label></b>{{session.level}}</li>
+        <br>
+        <li><a href="/book/{{session.id}}"><button class="session_buttons">Book Session</button></a> <a href="/session/description/{{ session.id }}"><button class="session_buttons">Session Info</button></a></li>
+        <br>
+        <li><label for="edit_session">Edit Session:</label><a href="/sessions/edit/{{session.id}}"><button><i class="fa-solid fa-pen-to-square"></i></button></a></li>
+        <li><form action="/sessions/delete/{{session.id}}" method="POST"><label for="delete">Delete Session:</label><button><i class="fa-solid fa-trash-can"></i></button></form></li>
+        <li>   
+             {% if session.active_session == True %}
+            <form action="/sessions/inactive/{{ session.id }}" method="POST">
+             <button><i class="fa fa-check fa-2x" style="color: green" aria-hidden="true"></i></button>
+            </form>
+      
+             {% else %}
+            <form action="/sessions/active/{{ session.id }}" method="POST">
+            <button><i class="fa fa-times fa-2x" aria-hidden="true"></i></button>
+            </form>
+            {% endif %}
+        </li>
     </ul>
     </div>
 {% endfor %}

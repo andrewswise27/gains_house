@@ -9,8 +9,8 @@ class Session:
         self.active_session = _active_session
         self.id = _id
 
-    def make_active(self):
+    def mark_active(self):
         self.active_session = True
     
-    def make_inactive(self):
+    def mark_inactive(self):
         self.active_session = False

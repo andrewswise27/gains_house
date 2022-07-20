@@ -36,8 +36,8 @@ def select_member(id):
     return member
 
 def edit(member):
-    sql = "UPDATE members SET (name, age, nationality, mob_number, email, membership_type, active_member) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
-    values = [member.name, member.age, member.nationality, member.mob_number, member.email, member.id, member.membership_type, member.active_member]
+    sql = "UPDATE members SET (name, age, nationality, mob_number, email, membership_type, active_member) = (%s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
+    values = [member.name, member.age, member.nationality, member.mob_number, member.email, member.membership_type, member.active_member, member.id]
     run_sql(sql, values)
 
 def delete(id):
@@ -51,12 +51,3 @@ def get_membership_type(id):
     results = run_sql(sql, values)
     membershiptype = (results[0][0])
     return membershiptype
-
-def get_active_member(id):
-    sql = "SELECT active_member FROM members WHERE id = %s"
-    values = [id]
-    results = run_sql(sql, values)
-    active = (results[0][0])
-    return active
-
-    

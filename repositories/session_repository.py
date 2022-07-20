@@ -38,7 +38,7 @@ def select_session(id):
     return session
 
 def edit(session):
-    sql = "UPDATE sessions SET (name, timedate, length, capacity, description, level, active_sessions) = (%s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
+    sql = "UPDATE sessions SET (name, timedate, length, capacity, description, level, active_session) = (%s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
     values = [session.name, session.timedate, session.length, session.capacity, session.description, session.level, session.active_session, session.id]
     run_sql(sql, values)
 
@@ -57,7 +57,7 @@ def get_session_time(id):
     sql = "SELECT timedate :: timestamp :: time  FROM sessions WHERE id = %s"
     values = [id]
     results = run_sql(sql, values)
-    time = (results[0][0])
+    time = results[0][0]
     seq = int(time.strftime("%H%M%S"))
     return seq
 
