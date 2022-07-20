@@ -18,7 +18,8 @@ CREATE TABLE members (
     age INT,
     nationality VARCHAR(255),
     mob_number VARCHAR(255),
-    email VARCHAR(255)
+    email VARCHAR(255),
+    membership_type VARCHAR(255)
 );
 
 CREATE TABLE booked_sessions (
