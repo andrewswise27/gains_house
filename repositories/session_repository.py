@@ -10,8 +10,8 @@ from repositories import member_repository
 from repositories import booked_session_repository
 
 def save(session):
-    sql = "INSERT INTO sessions (name, timedate, length, capacity, level, description) VALUES (%s, %s, %s, %s, %s, %s) RETURNING ID"
-    values = [session.name, session.timedate, session.length, session.capacity, session.level, session.description]
+    sql = "INSERT INTO sessions (name, timedate, length, capacity, level, description, active_session) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING ID"
+    values = [session.name, session.timedate, session.length, session.capacity, session.level, session.description, session.active_session]
     results = run_sql(sql, values)
     session.id = results[0]['id']
     return session
@@ -22,7 +22,7 @@ def select_all():
     sql = "SELECT * FROM sessions ORDER BY timedate"
     results = run_sql(sql)
     for row in results:
-        session = Session(row['name'], row['timedate'], row['length'], row['capacity'], row['description'], row['level'], row['id'])
+        session = Session(row['name'], row['timedate'], row['length'], row['capacity'], row['description'], row['level'], row['active_session'], row['id'])
         sessions.append(session)
     return sessions
 
@@ -34,12 +34,12 @@ def select_session(id):
     sql = "SELECT * FROM sessions WHERE id = %s"
     values = [id]
     results = run_sql(sql, values)[0]
-    session = Session(results['name'], results['timedate'], results['length'], results['capacity'], results['description'], results['level'], results['id'])
+    session = Session(results['name'], results['timedate'], results['length'], results['capacity'], results['description'], results['level'], results['active_session'], results['id'])
     return session
 
 def edit(session):
-    sql = "UPDATE sessions SET (name, timedate, length, capacity, description, level) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
-    values = [session.name, session.timedate, session.length, session.capacity, session.description, session.level, session.id]
+    sql = "UPDATE sessions SET (name, timedate, length, capacity, description, level, active_session) = (%s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
+    values = [session.name, session.timedate, session.length, session.capacity, session.description, session.level, session.active_session, session.id]
     run_sql(sql, values)
 
 def delete(id):
@@ -57,6 +57,13 @@ def get_session_time(id):
     sql = "SELECT timedate :: timestamp :: time  FROM sessions WHERE id = %s"
     values = [id]
     results = run_sql(sql, values)
-    time = (results[0][0])
+    time = results[0][0]
     seq = int(time.strftime("%H%M%S"))
     return seq
+
+def get_active_session(id):
+    sql = "SELECT active_session FROM sessions WHERE id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+    active = (results[0][0])
+    return active

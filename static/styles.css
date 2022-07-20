@@ -164,5 +164,6 @@ main {
     margin: 10px;
 }
 
-/* overflow: hidden;
-position:fixed */
+.active_labels {
+    display: inline-block;
+}

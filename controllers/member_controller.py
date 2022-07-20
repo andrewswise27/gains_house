@@ -57,3 +57,17 @@ def edit(id):
 def delete_member(id):
     member_repository.delete(id)
     return redirect('/members')
+
+@members_blueprint.route('/members/active/<id>', methods=['POST'])
+def make_active(id):
+    member = member_repository.select_member(id)
+    member.mark_active()
+    member_repository.edit(member)
+    return redirect('/members')
+
+@members_blueprint.route('/members/inactive/<id>', methods=['POST'])
+def make_inactive(id):
+    member = member_repository.select_member(id)
+    member.mark_inactive()
+    member_repository.edit(member)
+    return redirect('/members')

@@ -5,7 +5,11 @@
         <label for="member">Select a Member:</label>
         <select name="member_id" id="member">
             {% for member in members %}
-            <option value="{{ member.id }}">{{member.name}}</option>
+                {% if member.active_member == False %}
+                <option value="{{ member.id }}" hidden></option>
+                {% else %}
+                <option value="{{ member.id }}">{{member.name}}</option>    
+                {% endif %}
             {% endfor %}
         </select>
         <br>
