@@ -15,8 +15,8 @@ booked_session_blueprint = Blueprint("booked_sessions", __name__)
 def booking(id):
     members = member_repository.select_all()
     sessions = session_repository.select_session(id)
-    session_status = session_repository.get_active_session(sessions)
-    if session_status == "False":
+    session_status = session_repository.get_active_session(id)
+    if session_status == False:
         return render_template("/bookings/non-active.html")
     else:
         return render_template("/bookings/index.html", members=members, sessions=sessions)
