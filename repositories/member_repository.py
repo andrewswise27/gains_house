@@ -26,8 +26,8 @@ def select_all():
 
 def delete_all():
     sql = "DELETE FROM members"
-    run_sql(sql)
-
+    run_sql(sql) 
+    
 def select_member(id):
     sql = "SELECT * FROM members WHERE id = %s"
     values = [id]
