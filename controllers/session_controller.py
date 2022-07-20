@@ -66,3 +66,17 @@ def edit(id):
 def delete_session(id):
     session_repository.delete(id)
     return redirect('/sessions')
+
+@sessions_blueprint.route('/sessions/active/<id>', methods=['POST'])
+def make_active(id):
+    session = session_repository.select_session(id)
+    session.mark_active()
+    session_repository.edit(session)
+    return redirect('/sessions')
+
+@sessions_blueprint.route('/sessions/inactive/<id>', methods=['POST'])
+def make_inactive(id):
+    session = session_repository.select_session(id)
+    session.mark_inactive()
+    session_repository.edit(session)
+    return redirect('/sessions')

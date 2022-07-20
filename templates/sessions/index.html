@@ -16,7 +16,8 @@
         <br>
         <li><label for="edit_session">Edit Session:</label><a href="/sessions/edit/{{session.id}}"><button><i class="fa-solid fa-pen-to-square"></i></button></a></li>
         <li><form action="/sessions/delete/{{session.id}}" method="POST"><label for="delete">Delete Session:</label><button><i class="fa-solid fa-trash-can"></i></button></form></li>
-        <li>   
+        <li> 
+            <label for="session_active" class="active_labels">Active Session?</label>  
              {% if session.active_session == True %}
             <form action="/sessions/inactive/{{ session.id }}" method="POST">
              <button><i class="fa fa-check fa-2x" style="color: green" aria-hidden="true"></i></button>
