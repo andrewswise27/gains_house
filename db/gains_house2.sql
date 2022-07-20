@@ -9,7 +9,8 @@ CREATE TABLE sessions (
     length INT,
     capacity INT,
     level VARCHAR(255),
-    description TEXT
+    description TEXT,
+    active_session BOOLEAN
 );
 
 CREATE TABLE members (
@@ -19,7 +20,8 @@ CREATE TABLE members (
     nationality VARCHAR(255),
     mob_number VARCHAR(255),
     email VARCHAR(255),
-    membership_type VARCHAR(255)
+    membership_type VARCHAR(255),
+    active_member BOOLEAN
 );
 
 CREATE TABLE booked_sessions (
