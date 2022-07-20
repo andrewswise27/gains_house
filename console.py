@@ -69,7 +69,3 @@ member_repo.save(member6)
 member_repo.save(member7)
 member_repo.save(member8)
 member_repo.save(member9)
-
-test = session_repo.get_active_session('241')
-
-print(type(test))
