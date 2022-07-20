@@ -65,4 +65,5 @@ def get_active_session(id):
     sql = "SELECT active_session FROM sessions WHERE id = %s"
     values = [id]
     results = run_sql(sql, values)
-    return results
+    active = (results[0][0])
+    return active

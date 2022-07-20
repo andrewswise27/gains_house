@@ -56,6 +56,7 @@ def get_active_member(id):
     sql = "SELECT active_member FROM members WHERE id = %s"
     values = [id]
     results = run_sql(sql, values)
-    return results
+    active = (results[0][0])
+    return active
 
     
