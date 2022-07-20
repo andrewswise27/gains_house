@@ -8,3 +8,10 @@ class Member:
         self.membership_type =_membership_type
         self.active_member = _active_member
         self.id = _id
+
+    def make_active(self):
+        self.active_member = True
+
+    def make_inactive(self):
+        self.active_member = False
+        
